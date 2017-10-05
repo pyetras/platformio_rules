@@ -122,7 +122,7 @@ def _platformio_library_impl(ctx):
   )
 
   # Collect the zip files produced by all transitive dependancies.
-  transitive_zip_files=set([ctx.outputs.zip])
+  transitive_zip_files=depset([ctx.outputs.zip])
   for dep in ctx.attr.deps:
     transitive_zip_files += dep.transitive_zip_files
   return struct(
