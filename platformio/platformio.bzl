@@ -178,7 +178,7 @@ def _emit_build_action(ctx, project_dir):
     project_dir: A string, the main directory of the PlatformIO project.
       This is where the zip files will be extracted.
   """
-  transitive_zip_files = set()
+  transitive_zip_files = depset()
   for dep in ctx.attr.deps:
     transitive_zip_files += dep.transitive_zip_files
 
